@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyWallet</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<%= link_to "Home", users_path %><br>
+	<%= link_to "New User Signup", new_user_path %><br>
+	<%= link_to "Sign In", login_path %><br>
+	<% if current_user%>
+		<%= link_to "My Dashboard", card_path(current_user) %><br>
+		<%= link_to "Sign Out", sessions_path, method: :delete %><br>
+	<% end %>
+
+	<br>
+
+	<%= flash[:notice] if flash[:notice] %>
+	<%= flash[:alert] if flash[:alert] %>
+
+<%= yield %>
+
+</body>
+</html>

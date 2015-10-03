@@ -1,0 +1,15 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container{
+
+	font-family: sans-serif;
+
+	.banner{
+		height: 900px;
+		background-image: url('http://www.904fitness.com/wp-content/uploads/2013/03/1003_WVjobcreators.jpg');
+		background-size: cover;
+		color: green;
+	}
+
+}
