@@ -1,3 +1,60 @@
 // Place all the styles related to the cards controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+ @import 'form';
+
+ %card{
+ 	color: black;
+ 	margin: 50px auto;
+ 	padding-top: 20px;
+ 	padding-left: 20px;
+ 	padding-right: 20px;
+ 	width: 400px;
+ 	height: 250px;
+ 	border-radius: 15px;
+ 	font-size: 20pt;
+
+ 	.type{
+ 		text-align: left;
+ 	}
+
+ 	.number{
+ 		text-align: center;
+ 		font-size: 30pt;
+ 		padding-top: 60px;
+ 	}
+
+ 	.exp{
+ 		text-align: right;
+ 	}
+}
+
+.all_cards{
+
+	a{
+		color: white;
+	}
+
+	a:hover{
+		color: black;
+	}
+
+	
+
+	.visa{
+		@extend %card;
+		background-color: blue;
+	}
+
+	.master{
+		@extend %card;
+		background-color: gray;
+	}
+
+	.other{
+		@extend %card;
+		background-color: red;
+	}
+
+ }

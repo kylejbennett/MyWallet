@@ -1,16 +1,19 @@
 <div class="container">
-
-
-
-<div class="row">
-
-	<div class="col-xs-12 banner">
-		<h1>Welcome to Wallet</h1>
-		<p>Sign Up to start making it rain!</p>
+	<div class="row">
+		<div class="col-xs-12 banner">
+			<div class="row">
+				<div class="col-xs-3 left">
+					<h1>Welcome to Wallet!</h1>
+					<%= link_to "Sign Up and start making it rain!", new_user_path %>
+				</div>
+				<div class="col-xs-6"></div>
+				<div class="col-xs-3 right">
+					<h1>Already a Member?</h1>
+					<%= link_to "Log In to your Dashboard", login_path %>
+				</div>
+			</div>
+		</div>
 	</div>
-
-</div>
-
 </div>
 
 

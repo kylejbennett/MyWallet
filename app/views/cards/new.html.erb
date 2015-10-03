@@ -1,13 +1,15 @@
-<h1>Add a Card</h1>
+<div class="form">
+	<h1>Add a Card</h1>
 
-<%= form_for Card.new do |f| %>
-	<%= f.label "Card Number" %><br>
-	<%= f.text_field :card_number %><br>
-	<%= f.label "Card Type" %><br>
-	<%= f.text_field :card_type %><br>
-	<%= f.label "Expiration Month" %><br>
-	<%= f.text_field :exp_month %><br>
-	<%= f.label "Expiration Year" %><br>
-	<%= f.text_field :exp_year %><br>
-	<%= f.submit :create %>
-<% end %>
+	<%= form_for Card.new do |f| %>
+		<%= f.label "Card Number" %><br>
+		<%= f.text_field :card_number %><br>
+		<%= f.label "Card Type" %><br>
+		<%= f.text_field :card_type %><br>
+		<%= f.label "Expiration Month" %><br>
+		<%= f.text_field :exp_month %><br>
+		<%= f.label "Expiration Year" %><br>
+		<%= f.text_field :exp_year %><br>
+		<%= f.submit :create %>
+	<% end %>
+</div>

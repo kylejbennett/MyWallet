@@ -1,14 +1,5 @@
 class UsersController < ApplicationController
 
-	def current_user 
-		if session[:userid]
-			@current_user = User.find(session[:userid])
-		else
-			nil
-		end
-	end
-
-
 	def index
 		
 	end
@@ -21,7 +12,7 @@ class UsersController < ApplicationController
 		@user.save
 		if @user.save
 			flash[:notice] = "User has been created"
-			session[:userid] = @user.id 
+			session[:user_id] = @user.id 
 			puts @user.id
 			redirect_to @user
 		else
@@ -35,7 +26,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		
+		if current_user
+			@user = User.find(params[:id])
+		else
+			flash[:alert] = "Please login or sign up"
+			redirect_to login_path
+		end
 	end
 
 	def edit

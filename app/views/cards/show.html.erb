@@ -1,3 +1,37 @@
-<h1>
-	<%= @user.fname %>'s Dashboard
-</h1>
+<div class="form">
+	<h1>
+		<%= @user.fname %>'s Dashboard
+	</h1>
+
+	<div class="all_cards">
+
+		<h3>Your Cards: </h3>
+		
+		<% @cards.each do |card|%>
+
+			<% if card.card_type == "Visa"%>
+				<div class="visa">
+					<p class="type"><%= card.card_type %></p>
+					<p class="number"><%= card.card_number %></p>
+					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
+				</div>
+			<% elsif card.card_type == "MasterCard"%>
+				<div class="master">
+					<p class="type"><%= card.card_type %></p>
+					<p class="number"><%= card.card_number %></p>
+					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
+				</div>
+			<% else %>
+				<div class="other">
+					<p class="type"><%= card.card_type %></p>
+					<p class="number"><%= card.card_number %></p>
+					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
+				</div>
+			<% end %>
+		<% end %>
+
+		<%= link_to "+ Add a new card", new_card_path %>
+
+	</div>
+
+</div>
