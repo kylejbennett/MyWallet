@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
 	has_many :cards
+	has_many :usercards, foreign_key: :user_id, dependent: :destroy
 
 	validates :email, uniqueness: true
 	validates :phone, length: {is: 10}

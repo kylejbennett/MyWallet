@@ -7,7 +7,7 @@
  %card{
  	color: black;
  	margin: 50px auto;
- 	padding-top: 20px;
+ 	padding-top: 30px;
  	padding-left: 20px;
  	padding-right: 20px;
  	width: 400px;
@@ -15,14 +15,9 @@
  	border-radius: 15px;
  	font-size: 20pt;
 
- 	.type{
- 		text-align: left;
- 	}
-
  	.number{
- 		text-align: center;
  		font-size: 30pt;
- 		padding-top: 60px;
+ 		padding-top: 115px;
  	}
 
  	.exp{
@@ -34,27 +29,35 @@
 
 	a{
 		color: white;
+		font-size: 12pt;
 	}
 
 	a:hover{
 		color: black;
 	}
 
-	
+	img{
+		position: absolute;
+		left: 38%;
+		width: 70px;
+	}
 
 	.visa{
 		@extend %card;
-		background-color: blue;
+		background-image: url('../blue.png');
+		background-size: cover;
 	}
 
 	.master{
 		@extend %card;
-		background-color: gray;
+		background-image: url('../red.png');
+		background-size: cover;
 	}
 
 	.other{
 		@extend %card;
-		background-color: red;
+		background-image: url('../green.png');
+		background-size: cover;
 	}
 
  }

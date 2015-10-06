@@ -1,0 +1,18 @@
+<h1>Share this card</h1>
+
+<div class="form">
+	<h1>Who would you like to share this card with?</h1>
+
+	<%= form_tag "/usercards", method: :create do %>
+		<%= label_tag :fname %><br>
+		<%= text_field_tag :fname %><br>
+		<%= label_tag :lname %><br>
+		<%= text_field_tag :lname %><br>
+		<%= label_tag :email %><br>
+		<%= text_field_tag :email %><br>
+		<%= label_tag :card_number %><br>
+		<%= text_field_tag :card_number %><br>
+		<br>
+		<%= submit_tag "Share Card" %>
+	<% end %>
+</div>

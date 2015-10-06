@@ -29,9 +29,13 @@ class CardsController < ApplicationController
 	def show
 		@user = User.find(session[:user_id])
 		@cards = Card.where(user_id: @user)
+		@usercards = Usercard.where(user_id: @user)
 	end
 
 	def destroy
+		@card = Card.find(params[:id])
+		@card.destroy
+		redirect_to card_path current_user
 	end
 
 end

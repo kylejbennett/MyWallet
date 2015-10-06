@@ -7,30 +7,58 @@
 
 		<h3>Your Cards: </h3>
 		
-		<% @cards.each do |card|%>
+		<% if @cards %>
+			<% @cards.each do |card|%>
 
-			<% if card.card_type == "Visa"%>
-				<div class="visa">
-					<p class="type"><%= card.card_type %></p>
-					<p class="number"><%= card.card_number %></p>
-					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
-				</div>
-			<% elsif card.card_type == "MasterCard"%>
-				<div class="master">
-					<p class="type"><%= card.card_type %></p>
-					<p class="number"><%= card.card_number %></p>
-					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
-				</div>
-			<% else %>
-				<div class="other">
-					<p class="type"><%= card.card_type %></p>
-					<p class="number"><%= card.card_number %></p>
-					<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
-				</div>
+				<% if card.card_type == "Visa"%>
+					<div class="visa">
+						<img src="../visa.jpg" class="type">
+				<% elsif card.card_type == "MasterCard"%>
+					<div class="master">
+						<img src="../mastercard.jpg" class="type">
+				<% else %>
+					<div class="other">
+						<img src="../amex.jpg" class="type">
+				<% end %>
+						<p class="number"><%= card.card_number %></p>
+						<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
+						<%= link_to "share", usercard_path(card.id) %> | <%=link_to "delete", card_path(card), method: :delete, remote: true, class: "delete" %>
+					</div>
 			<% end %>
 		<% end %>
 
 		<%= link_to "+ Add a new card", new_card_path %>
+		<hr>
+
+		<h3>Your User Cards: </h3>
+
+		<% if @usercards %>
+			<% @usercards.each do |usercard|%>
+
+				<% if Card.find(usercard.card_id).card_type == "Visa"%>
+					<div class="visa">
+						<img src="../visa.jpg" class="type">
+						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
+						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
+						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
+					</div>
+				<% elsif Card.find(usercard.card_id).card_type == "MasterCard"%>
+					<div class="master">
+						<img src="../mastercard.jpg" class="type">
+						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
+						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
+						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
+					</div>
+				<% else %>
+					<div class="other">
+						<img src="../amex.jpg" class="type">
+						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
+						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
+						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
+					</div>
+				<% end %>
+			<% end %>
+		<% end %>
 
 	</div>
 
