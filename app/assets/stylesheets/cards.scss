@@ -2,7 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
- @import 'form';
+.dash_view{
+
+	color: black;
+	margin: 150px auto;
+	text-align: center;
+	width: 1000px;
+	background: green;
+	border-radius: 30px;
+	border: 2px solid black;
+	padding: 20px;
+
+	.dash_head{
+		font-size: 40pt;
+	}
+}
 
  %card{
  	color: black;
@@ -14,10 +28,11 @@
  	height: 250px;
  	border-radius: 15px;
  	font-size: 20pt;
+ 	background-size: cover;
 
  	.number{
  		font-size: 30pt;
- 		padding-top: 115px;
+ 		padding-top: 68px;
  	}
 
  	.exp{
@@ -26,6 +41,10 @@
 }
 
 .all_cards{
+
+	h3{
+		text-align: left;
+	}
 
 	a{
 		color: white;
@@ -37,27 +56,41 @@
 	}
 
 	img{
-		position: absolute;
-		left: 38%;
+		position: relative;
+		right: 38%;
 		width: 70px;
+		height: 40px;
+	}
+
+	.balance{
+		font-size: 40pt;
+		color: blue;
 	}
 
 	.visa{
 		@extend %card;
-		background-image: url('../blue.png');
-		background-size: cover;
+		background-image: url('../blue.png');		
 	}
 
 	.master{
 		@extend %card;
 		background-image: url('../red.png');
-		background-size: cover;
 	}
 
 	.other{
 		@extend %card;
 		background-image: url('../green.png');
-		background-size: cover;
 	}
 
  }
+
+ .card{
+ 	display: inline-block;
+ 	float: left;
+ 	margin: 39px;
+ }
+
+.clear{
+	clear:both;
+}
+

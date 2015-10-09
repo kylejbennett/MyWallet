@@ -1,6 +1,6 @@
 .form{
 
-	color: white;
+	color: black;
 	margin: 150px auto;
 	text-align: center;
 	width: 600px;
@@ -8,6 +8,10 @@
 	border-radius: 30px;
 	border: 2px solid black;
 	padding: 20px;
+
+	p{
+		color: red;
+	}
 
 	input{
 		border: 2px solid black;
@@ -20,4 +24,9 @@
 	label{
 		font-family: sans-serif;
 	}
+
+	select{
+		margin-bottom: 10px;
+	}
+
 }

@@ -1,65 +1,84 @@
-<div class="form">
-	<h1>
+<div class="dash_view">
+	<h1 class="dash_head">
 		<%= @user.fname %>'s Dashboard
 	</h1>
 
 	<div class="all_cards">
 
-		<h3>Your Cards: </h3>
+		<h1>Your current balance is:</h1>
+
+		<h1 class="balance" ><%= number_to_currency(@user.balance) %></h1>
+
+		<hr>
+
+		<h3>
+			You have 
+			<%= @cards.count %>
+			<% if @cards.count == 1 %>
+				Card
+			<% else %>
+				Cards
+			<% end %>
+		</h3>
 		
 		<% if @cards %>
 			<% @cards.each do |card|%>
-
-				<% if card.card_type == "Visa"%>
-					<div class="visa">
-						<img src="../visa.jpg" class="type">
-				<% elsif card.card_type == "MasterCard"%>
-					<div class="master">
-						<img src="../mastercard.jpg" class="type">
-				<% else %>
-					<div class="other">
-						<img src="../amex.jpg" class="type">
-				<% end %>
-						<p class="number"><%= card.card_number %></p>
-						<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
-						<%= link_to "share", usercard_path(card.id) %> | <%=link_to "delete", card_path(card), method: :delete, remote: true, class: "delete" %>
-					</div>
+				<div class="card">
+					<% if card.card_type == "Visa"%>
+						<div class="visa">
+							<img src="../visa.jpg" class="type">
+					<% elsif card.card_type == "MasterCard"%>
+						<div class="master">
+							<img src="../mastercard.jpg" class="type">
+					<% else %>
+						<div class="other">
+							<img src="../amex.jpg" class="type">
+					<% end %>
+							<p class="number"><%= card.card_number %></p>
+							<p class="exp">Exp <%= card.exp_month %> / <%= card.exp_year %></p>
+							<%= link_to "share", usercard_path(card.id) %> | <%=link_to "delete", card_path(card), method: :delete, remote: true, class: "delete" %>
+						</div>
+				</div>
 			<% end %>
 		<% end %>
+
+		<div class="clear"></div>
 
 		<%= link_to "+ Add a new card", new_card_path %>
 		<hr>
 
-		<h3>Your User Cards: </h3>
+		<h3> 
+			You have 
+			<%= @usercards.count %>
+			<% if @usercards.count == 1 %>
+				UserCard
+			<% else %>
+				UserCards
+			<% end %>
+		</h3>
 
 		<% if @usercards %>
 			<% @usercards.each do |usercard|%>
-
-				<% if Card.find(usercard.card_id).card_type == "Visa"%>
-					<div class="visa">
-						<img src="../visa.jpg" class="type">
-						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
-						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
-						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
-					</div>
-				<% elsif Card.find(usercard.card_id).card_type == "MasterCard"%>
-					<div class="master">
-						<img src="../mastercard.jpg" class="type">
-						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
-						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
-						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
-					</div>
-				<% else %>
-					<div class="other">
-						<img src="../amex.jpg" class="type">
-						<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
-						<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
-						<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
-					</div>
-				<% end %>
+				<div class="card">
+					<% if Card.find(usercard.card_id).card_type == "Visa"%>
+						<div class="visa">
+							<img src="../visa.jpg" class="type">
+					<% elsif Card.find(usercard.card_id).card_type == "MasterCard"%>
+						<div class="master">
+							<img src="../mastercard.jpg" class="type">
+					<% else %>
+						<div class="other">
+							<img src="../amex.jpg" class="type">
+					<% end %>
+							<p class="number"><%= Card.find(usercard.card_id).card_number %></p>
+							<p class="exp">Exp <%= Card.find(usercard.card_id).exp_month %> / <%= Card.find(usercard.card_id).exp_year %></p>
+							<%=link_to "delete", usercard_path(usercard), method: :delete, remote: true, class: "delete" %>
+						</div>
+				</div>
 			<% end %>
 		<% end %>
 
-	</div>
+		<div class="clear"></div>
 
+	</div>
 </div>
