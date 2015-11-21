@@ -1,5 +1,5 @@
 == README
 
-This is a application was built to practice the implementation of validations in Rails.  All validations were done from scratch.
+This application was built to practice the implementation of validations in Rails.  All validations were done from scratch.
 
 
